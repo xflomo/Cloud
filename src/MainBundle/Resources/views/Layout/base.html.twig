@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}Cloud!{% endblock %}</title>
+
+    {% block stylesheets %}
+		<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
+		<link rel="stylesheet" href="{{ asset('vendor/fontawesome/css/font-awesome.min.css') }}">
+		{#<link rel="stylesheet" href="{{ asset('vendor/prism/css/prism.css') }}">#}
+		<link rel="stylesheet" href="{{ asset('vendor/dropzone/css/dropzone.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body>
+<header class="header">
+	<div class="brand-bar">
+		Logo und Name
+	</div>
+	<div class="head-nav">
+		<div class="upload-btn">
+			<i class="fa fa-cloud-upload" aria-hidden="true"></i>
+			<p id="dropzone-click-target">Datei hochladen</p>
+		</div>
+	</div>	
+	<div class="head-nav-right">
+		<i class="fa fa-envelope message-btn" aria-hidden="true"></i>
+		<div class="logedin-user-container">
+			<img src="http://denise.fb-dev.de/art/avatar_2x.png">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Max Musterman<span class="caret"></span></a>
+			  <ul class="dropdown-menu">
+				<li><a href="#">Profil</a></li>
+				<li><a href="#">Benachrichtigungen</a></li>
+				<li role="separator" class="divider"></li>
+				<li><a href="#">Abmelden</a></li>
+			  </ul>
+		</div>
+	</div>
+</header>
+<div class="sub-header">
+	<div class="left-navbar">
+		<ol class="breadcrumb">
+		  <li><a href="#">Home</a></li>
+		  <li><a href="#">Library</a></li>
+		  <li class="active">Data</li>
+		</ol>
+	</div>
+	<div class="right-navbar">
+		xxx
+	</div>
+</div>
+<nav>
+	<input class="form-control" placeholder="Suche nach Datein"/>
+	<ul>
+		<li class="active">Datein</li>
+		<li>Fotos</li>
+		<li>Netzwerk</li>
+	</ul>
+	<ul>
+		<li>Papierkorb</li>
+		<li>Einstellungen</li>
+	</ul>
+	
+	<div class="nav-footer">
+		<p>
+			12,3 GB verfügbar
+		</p>
+		<hr>
+		<p>
+			Impressum
+		</p>
+		<p>
+			Datenschutz
+		</p>
+	</div>
+</nav>
+
+<div class="main-content">
+    {% block body %}{% endblock %}
+	<div class="loading-screen">
+		<div class="loading-content">
+			<div class="spinner">
+				<div class="bounce1"></div>
+				<div class="bounce2"></div>
+				<div class="bounce3"></div>
+			</div>
+			<p>Die Seite wird geladen. Gedulde dich einen Moment.</p>
+		</div>
+	</div>
+</div>
+
+{% block javascripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+    {#<script src="{{ asset('vendor/prism/js/prism.js') }}"></script>#}
+    <script src="{{ asset('vendor/jquery-ace/js/ace.js') }}"></script>
+    {#<script src="{{ asset('vendor/jquery-ace/js/mode-php.js') }}"></script>#}
+    {#<script src="{{ asset('vendor/jquery-ace/js/jquery-ace.min.js') }}"></script>#}
+    <script src="{{ asset('vendor/clipboard/js/clipboard.min.js') }}"></script>
+    <script src="{{ asset('vendor/dropzone/js/dropzone.js') }}"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,22 @@
+{% extends 'MainBundle:Layout:base.html.twig' %}
+
+{% block body %}
+    <div class="code-container container">
+        <div class="code-header">
+            <p>test.php</p>
+            <div class="right-code-head">
+                <i class="material-icons">mode_edit</i>
+                <i id="copyToClipboard" class="material-icons" data-clipboard-target="#editor" data-trigger="manual" alt="Copy to clipboard" title="Kopiert !" aria-hidden="true">content_copy</i>
+                <i class="material-icons">file_download</i>
+                <i class="material-icons">delete</i>
+            </div>
+        </div>
+        <div class="code-content">
+				<div id="editor">{{ content }}</div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+
