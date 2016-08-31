@@ -17,4 +17,15 @@ class DefaultController extends Controller
             'content' => $varTest,
         ));
     }
+
+    /**
+     * @Route("/file")
+     */
+    public function fileAction()
+    {
+        $varTest = file_get_contents('C:/xampp/htdocs/Cloud/web/uploads/test.php');
+        return $this->render('MainBundle:Pages:fileView.html.twig', array(
+            'content' => $varTest,
+        ));
+    }
 }

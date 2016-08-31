@@ -1,0 +1,35 @@
+{% extends 'MainBundle:Layout:base.html.twig' %}
+
+{% block body %}
+    <div class="main-container container code-container">
+        <div class="content-header">
+            <h3>test.php</h3>
+            <div class="right-content">
+                <div class="content-header-btn activeEditMode">
+                    <i class="material-icons">mode_edit</i>
+                </div>
+                <div class="content-header-btn create-new-folder safeEditCode">
+                    <i class="material-icons">save</i>
+                </div>
+                <div class="content-header-btn create-new-folder" id="copyToClipboard" data-clipboard-target="#copyContent" >
+                    <i class="material-icons" >content_copy</i>
+                </div>
+                <div class="content-header-btn create-new-folder">
+                    <i class="material-icons">file_download</i>
+                </div>
+                <div class="content-header-btn create-new-folder">
+                    <i class="deleteFile material-icons">delete</i>
+                </div>
+            </div>
+        </div>
+
+        <div class="code-content">
+            <div id="editor">{{ content }}</div>
+            <textarea id="copyContent">{{ content }}</textarea>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+

@@ -42,46 +42,53 @@ $('body')
 //
 //Prism.highlightAll();
 
-var editor = ace.edit("editor");
-editor.setTheme("ace/theme/chrome");
-editor.getSession().setMode("ace/mode/php");
-editor.setReadOnly(true);
-
 var heightUpdateFunction = function () {
+    if($("#editor").length > 0){
+        // http://stackoverflow.com/questions/11584061/
+        var newHeight =
+            editor.getSession().getScreenLength()
+            * editor.renderer.lineHeight
+            + editor.renderer.scrollBar.getWidth();
 
-    // http://stackoverflow.com/questions/11584061/
-    var newHeight =
-        editor.getSession().getScreenLength()
-        * editor.renderer.lineHeight
-        + editor.renderer.scrollBar.getWidth();
+        $('#editor').height(newHeight.toString() + "px");
+        $('.main-container').height((parseInt(newHeight) + 80)+ "px");
 
-    $('#editor').height(newHeight.toString() + "px");
-    $('.code-container').height((parseInt(newHeight) + 58)+ "px");
+        var Range = ace.require('ace/range').Range // get reference to ace/range
 
-    // This call is required for the editor to fix all of
-    // its inner structure for adapting to a change in size
-    editor.resize();
+        editor.session.addMarker(new Range(16, 0 ,21), "code-marker", "line");
+
+        // This call is required for the editor to fix all of
+        // its inner structure for adapting to a change in size
+        editor.resize();
+    }
 };
 
-heightUpdateFunction();
+if($("#editor").length > 0){
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/chrome");
+    editor.getSession().setMode("ace/mode/php");
+    editor.setReadOnly(true);
+    heightUpdateFunction();
 
-editor.getSession().on('change', heightUpdateFunction);
+    editor.getSession().on('change', heightUpdateFunction);
+}
+
+
 
 var clipboard = new Clipboard('#copyToClipboard');
 
+
 clipboard.on('success', function(e) {
     e.clearSelection();
-    $('#copyToClipboard').tooltip('show');
-
-    setTimeout(function(){
-        $('#copyToClipboard').tooltip('hide');
-    }, 1000);
-
-
+    $.snackbar({content: "Dateiinhalt kopiert!", timeout: 4000});
 });
 
 $(window).load(function(){
     $(".loading-screen").hide();
+});
+
+$(window).resize(function(){
+    heightUpdateFunction();
 });
 
 $(document).ready(function(){
@@ -103,3 +110,45 @@ $( "body" ).on( "click", ".file.folder", function(e) {
     }
 });
 
+$( "body" ).on( "click", ".activeEditMode", function(e) {
+    $(this).hide();
+    $(".safeEditCode").css("display", "inline-block");
+    editor.setReadOnly(false);
+    editor.focus();
+    $(".ace_active-line").show();
+});
+
+$( "body" ).on( "click", ".safeEditCode", function(e) {
+    $(this).hide();
+    $(".activeEditMode").show();
+    editor.setReadOnly(true);
+    $("#copyContent").val(editor.getValue());
+    $(".ace_active-line").hide();
+    $.snackbar({content: "Datei gespeichert!", timeout: 4000});
+});
+
+$( "body" ).on( "click", ".deleteFile", function(e) {
+    deleteFileConfirm();
+});
+
+
+function deleteFileConfirm(){
+    $.confirm({
+        title: 'Datei löschen',
+        content: 'Möchtest du diese Datei wirklich löschen?',
+        closeIcon: true,
+        theme: 'material',
+        cancelButton: 'abbrechen',
+        confirmButton: 'löschen',
+        cancel: function(){
+        },
+        confirm: function(){
+            $.alert({
+                title: '',
+                theme: 'material',
+                content: 'Das Team wurde gelöscht.'
+            }); // shorthand.
+            removeTeam();
+        }
+    });
+}

@@ -1,19 +1,96 @@
 {% extends 'MainBundle:Layout:base.html.twig' %}
 
 {% block body %}
-    <div class="code-container container">
-        <div class="code-header">
-            <p>test.php</p>
-            <div class="right-code-head">
-                <i class="material-icons">mode_edit</i>
-                <i id="copyToClipboard" class="material-icons" data-clipboard-target="#editor" data-trigger="manual" alt="Copy to clipboard" title="Kopiert !" aria-hidden="true">content_copy</i>
-                <i class="material-icons">file_download</i>
-                <i class="material-icons">delete</i>
+    <div class="main-container container">
+        <table class="table" style="display: table;">
+            <div class="content-header">
+                <h3>Deine Datein</h3>
+                <div class="right-content">
+                    <div class="content-header-btn">
+                        <i class="material-icons">file_upload</i>
+                    </div>
+                    <div class="content-header-btn create-new-folder">
+                        <i class="material-icons">create_new_folder</i>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="code-content">
-				<div id="editor">{{ content }}</div>
-        </div>
+            <tbody id="VerzAjaxConten">
+            <tr class="typeDir droppable ui-droppable activeTb" data-file-path="am6GFesWkVCpnvS2fxLBd9QI8i0h7TrogYXblAK4">
+                <td class="file-icon">
+                    <i class="material-icons">folder</i>
+                </td>
+                <td data-file-type="dir" data-file-uid="am6GFesWkVCpnvS2fxLBd9QI8i0h7TrogYXblAK4" class="tb-filename">
+                    <p class="file-name">Schule</p>
+                </td>
+                <td>321,51 MB</td>
+                <td>06 June 2016</td>
+                <td></td>
+            </tr>
+
+
+            <tr class="typeDir droppable ui-droppable" data-file-path="CQ8JF2Uk7vL4aPTwfK5b9x3rjYyRmHBiMXnOoADh">
+                <td class="file-icon">
+                    <i class="material-icons">folder</i>
+                </td>
+                <td data-file-type="dir" data-file-uid="CQ8JF2Uk7vL4aPTwfK5b9x3rjYyRmHBiMXnOoADh" class="tb-filename">
+                    <p class="file-name">Eigene Projekte</p>
+                </td>
+                <td>290,27 MB</td>
+                <td>24 August 2016</td>
+                <td></td>
+            </tr>
+
+
+            <tr class="typeDir droppable ui-droppable" data-file-path="V3qDAYKoFuHds8XlLkwMnrRJvECZtUbNi46OQWc7">
+                <td class="file-icon">
+                    <i class="material-icons">folder</i>
+                </td>
+                <td data-file-type="dir" data-file-uid="V3qDAYKoFuHds8XlLkwMnrRJvECZtUbNi46OQWc7" class="tb-filename">
+                    <p class="file-name">Eigene Datein</p>
+                </td>
+                <td>1,09 GB</td>
+                <td>23 June 2016</td>
+                <td></td>
+            </tr>
+
+
+            <tr class="typeDir droppable ui-droppable" data-file-path="dAOLk315Yi4WXp6jGocD7h9PxnEIuTH8qeKVvNbw">
+                <td class="file-icon">
+                    <i class="material-icons">folder</i>
+                </td>
+                <td data-file-type="dir" data-file-uid="dAOLk315Yi4WXp6jGocD7h9PxnEIuTH8qeKVvNbw" class="tb-filename">
+                    <p class="file-name">Programme</p>
+                </td>
+                <td>385,54 MB</td>
+                <td>24 February 2016</td>
+                <td></td>
+            </tr>
+
+
+            <tr>
+                <td class="file-icon">
+                    <i class="material-icons">insert_drive_file</i>
+                </td>
+                <td data-file-type="file" data-file-uid="VROD2JfbWqSx4sApE8UjtMuLadmFiv6CXnkQ79Tc" class="draggable tb-filename ui-draggable ui-draggable-handle">
+                    <p class="file-name">IdealGewichtModel.java</p>
+                </td>
+                <td>956 B</td>
+                <td>08 June 2016</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td class="file-icon">
+                    <i class="material-icons">insert_drive_file</i>
+                </td>
+                <td data-file-type="file" data-file-uid="yp71agiBcjYb2HPMKSDwLROzfFQ365AqTCXdW0oe" class="draggable tb-filename ui-draggable ui-draggable-handle">
+                    <p class="file-name">henne.zip</p>
+                </td>
+                <td>5,84 KB</td>
+                <td>08 June 2016</td>
+                <td>0</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 
 

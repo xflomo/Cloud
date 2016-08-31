@@ -9,8 +9,10 @@
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
 		<link rel="stylesheet" href="{{ asset('vendor/fontawesome/css/font-awesome.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/snackbarjs.css') }}">
 		{#<link rel="stylesheet" href="{{ asset('vendor/prism/css/prism.css') }}">#}
 		<link rel="stylesheet" href="{{ asset('vendor/dropzone/css/dropzone.css') }}">
+        <link rel="stylesheet" href="{{ asset('vendor/jquery-confirm/css/jquery-confirm.min.css') }}">
 		<link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     {% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
@@ -20,12 +22,6 @@
 	<div class="brand-bar">
 		Logo und Name
 	</div>
-	<div class="head-nav">
-		<div class="upload-btn">
-			<i class="fa fa-cloud-upload" aria-hidden="true"></i>
-			<p id="dropzone-click-target">Datei hochladen</p>
-		</div>
-	</div>	
 	<div class="head-nav-right">
 		<i class="fa fa-envelope message-btn" aria-hidden="true"></i>
 		<div class="logedin-user-container">
@@ -49,7 +45,7 @@
 		</ol>
 	</div>
 	<div class="right-navbar">
-		xxx
+
 	</div>
 </div>
 <nav>
@@ -95,12 +91,12 @@
 {% block javascripts %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap/js/snackbarjs.js') }}"></script>
     {#<script src="{{ asset('vendor/prism/js/prism.js') }}"></script>#}
     <script src="{{ asset('vendor/jquery-ace/js/ace.js') }}"></script>
-    {#<script src="{{ asset('vendor/jquery-ace/js/mode-php.js') }}"></script>#}
-    {#<script src="{{ asset('vendor/jquery-ace/js/jquery-ace.min.js') }}"></script>#}
     <script src="{{ asset('vendor/clipboard/js/clipboard.min.js') }}"></script>
     <script src="{{ asset('vendor/dropzone/js/dropzone.js') }}"></script>
+    <script src="{{ asset('vendor/jquery-confirm/js/jquery-confirm.min.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
 {% endblock %}
 </body>
