@@ -131,6 +131,11 @@ $( "body" ).on( "click", ".deleteFile", function(e) {
     deleteFileConfirm();
 });
 
+$( "body" ).on( "click", "#VerzAjaxConten tr", function(e) {
+    console.log("ss");
+    Pace.restart();
+});
+
 
 function deleteFileConfirm(){
     $.confirm({
