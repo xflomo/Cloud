@@ -12,7 +12,7 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        $varTest = file_get_contents('C:/xampp/htdocs/Cloud/web/uploads/test.php');
+        $varTest = file_get_contents('uploads/test.php');
         return $this->render('MainBundle:Default:index.html.twig', array(
             'content' => $varTest,
         ));
