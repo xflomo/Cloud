@@ -169,7 +169,7 @@ i{
 }
 
 .loading-screen{
-    position: fixed;
+    position: absolute;
     top: 110px;
     left: 255px;
     right: 0px;
@@ -805,6 +805,11 @@ pre[class*="language-"]:before, pre[class*="language-"]:after {
 }
 
 @media (max-width: 768px) {
+
+    header {
+        padding: 0px 30px 0px 0px;
+    }
+
     nav{
         display: none;
     }
@@ -813,4 +818,37 @@ pre[class*="language-"]:before, pre[class*="language-"]:after {
     .main-content{
         left: 0;
     }
+
+    .table-file-date,
+    .message-btn,
+    .logedin-user-container .dropdown-toggle{
+        display: none;
+    }
+
+    .logedin-user-container img {
+         margin-right: 0px;
+    }
+
+    .brand-bar {
+        width: auto;
+        margin-left: 30px;
+    }
+
+    .sub-header {
+        padding: 0px 30px;
+    }
+
+    .content-header {
+        padding: 0 12px 0 22px;
+    }
+
+    .loading-screen {
+        left: 0;
+    }
+
+    .loading-content {
+        padding: 0 20px;
+    }
+
+
 }
