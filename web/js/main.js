@@ -50,8 +50,8 @@ var heightUpdateFunction = function () {
             * editor.renderer.lineHeight
             + editor.renderer.scrollBar.getWidth();
 
-        $('#editor').height(newHeight.toString() + "px");
-        $('.main-container').height((parseInt(newHeight) + 80)+ "px");
+        $('#editor').height((parseInt(newHeight) + 20)+ "px");
+        $('.main-container').height((parseInt(newHeight) + 100)+ "px");
 
         var Range = ace.require('ace/range').Range // get reference to ace/range
 

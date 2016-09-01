@@ -803,3 +803,14 @@ pre[class*="language-"]:before, pre[class*="language-"]:after {
         margin: 30px auto;
     }
 }
+
+@media (max-width: 768px) {
+    nav{
+        display: none;
+    }
+
+    .sub-header,
+    .main-content{
+        left: 0;
+    }
+}
